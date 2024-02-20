@@ -1,6 +1,7 @@
 using EventApp.Data.Abstract;
 using EventApp.Data.Concrete;
 using EventApp.Data.Concrete.EfCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,10 @@ builder.Services.AddDbContext<EventContext>(options => {
     var connectionString = config.GetConnectionString("sql_connection");
     options.UseSqlite(connectionString);
 });
+builder.Services.AddDbContext<IdentityContext>(
+    options => options.UseSqlite(builder.Configuration["ConnectionStrings:sql_connection"]));
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IdentityContext>();
 
 builder.Services.AddScoped<IEventRepository, EfEventRepository>(); 
 
@@ -17,7 +22,7 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-SeedData.LoadTestData(app);
+EventSeedData.LoadTestData(app);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
