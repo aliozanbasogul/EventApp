@@ -1,16 +1,21 @@
-using EventApp.Data.Abstract;
+using EventApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventApp.Controllers
 {
     public class EventController : Controller
     {
-        private readonly IEventRepository _repository;
-        public EventController(IEventRepository repository){
-            _repository = repository;
+        private readonly EventContext _context;
+
+        public EventController(EventContext context)
+        {
+            _context = context;
         }
-        public IActionResult Index(){
-            return View(_repository.Events.ToList());
+
+        public IActionResult Index()
+        {
+            var events = _context.Events.ToList();
+            return View(events);
         }
     }
 }

@@ -1,10 +1,12 @@
 using EventApp.Entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace EventApp.Data.Concrete.EfCore
+namespace EventApp.Models
 {
     public class EventContext : DbContext
     {
+
+        public EventContext(){}
         public EventContext(DbContextOptions<EventContext> options) : base(options){
 
         }

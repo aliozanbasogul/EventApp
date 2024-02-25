@@ -1,7 +1,7 @@
 using EventApp.Entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace EventApp.Data.Concrete.EfCore
+namespace EventApp.Models
 {
     public static class EventSeedData{
         public static void LoadTestData(IApplicationBuilder app){
