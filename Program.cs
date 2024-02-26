@@ -75,5 +75,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 IdentitySeedData.IdentityTestUser(app);
+EventSeedData.LoadTestData(app);
 
 app.Run();

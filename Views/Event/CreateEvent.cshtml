@@ -1,0 +1,29 @@
+@model Event
+
+<div class="row">
+    <div class="col-12">
+        <div class="bg-white p-4">
+            <h1>Post Create</h1>
+            <form action="CreateEvent" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="EventName" class="form-label"></label>
+                    <input asp-for="EventName" class="form-control">
+                    <span asp-validation-for="EventName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="EventLocation" class="form-label"></label>
+                    <input asp-for="EventLocation" class="form-control">
+                    <span asp-validation-for="EventLocation" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="EventPrice" class="form-label"></label>
+                    <input asp-for="EventPrice" class="form-control">
+                    <span asp-validation-for="EventPrice" class="text-danger"></span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+</div>

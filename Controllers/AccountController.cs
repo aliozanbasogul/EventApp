@@ -73,11 +73,11 @@ namespace IdentityApp.Controllers
                 if(result.Succeeded)
                 {
                     var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //var url = Url.Action("ConfirmEmail","Account", new{user.Id, token});
+                    var url = Url.Action("ConfirmEmail","Account", new{user.Id, token});
 
-                    //await _emailSender.SendEmailAsync(user.Email,"Hesap Onayı",$"Lütfen email hesbınızı onaylamak için linke <a href='http://localhost:5228{url}'>tıklayınız.</a>");
+                    await _emailSender.SendEmailAsync(user.Email,"Hesap Onayı",$"Lütfen email hesbınızı onaylamak için linke <a href='localhost:5228{url}'>tıklayınız.</a>");
 
-                    //TempData["message"] = "Email adresinize gelen onay linkine tıklayınız.";
+                    TempData["message"] = "Email adresinize gelen onay linkine tıklayınız.";
                     return RedirectToAction("Login","Account");
                 }
 
