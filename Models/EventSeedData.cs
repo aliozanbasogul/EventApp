@@ -15,7 +15,10 @@ namespace EventApp.Models
                         context.Events.AddRange(
                         new Event{EventName = "Event A", EventLocation = "Ankara", EventPrice = 10, Image = "1.jpg"},
                         new Event{EventName = "Event B", EventLocation = "Istanbul", EventPrice = 20, Image = "2.jpg"},
-                        new Event{EventName = "Event C", EventLocation = "Izmir", EventPrice = 30, Image = "3.jpg"}
+                        new Event{EventName = "Event C", EventLocation = "Izmir", EventPrice = 30, Image = "3.jpg"},
+                        new Event{EventName = "Event D", EventLocation = "Ankara", EventPrice = 10, Image = "1.jpg"},
+                        new Event{EventName = "Event E", EventLocation = "Istanbul", EventPrice = 20, Image = "2.jpg"},
+                        new Event{EventName = "Event F", EventLocation = "Izmir", EventPrice = 30, Image = "3.jpg"}
                     );
                     
                     context.SaveChanges();

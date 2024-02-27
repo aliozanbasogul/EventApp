@@ -6,7 +6,6 @@ namespace EventApp.Models
     public class EventContext : DbContext
     {
 
-        public EventContext(){}
         public EventContext(DbContextOptions<EventContext> options) : base(options){
 
         }
